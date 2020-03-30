@@ -1,0 +1,49 @@
+<div class="container">
+    <h2 class="text-center my-3">Mise a jour d'un Article</h2>
+    <div class="row">
+        <div class="col-sm-12" *ngFor="let articles of articles"  >
+            <form #f="ngForm" (ngSubmit)="onSubmitArticle(f, articles._id)">
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input class="form-control" type="text" [ngModel]="articles.titre" name="titre" id="titre" value="" placeholder="Titre de votre article" ngModel #titre="ngModel">
+                </div>
+                <div class="form-group">
+                    <label for="contenu">Contenu</label>
+                    <textarea class="form-control" rows="3" [ngModel]="articles.contenu" name="contenu" id="contenu" placeholder="Déscriptif produit" ngModel #contenu="ngModel"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categories">Categories</label>
+                    <select class="form-control" id="categories" [ngModel]="articles.Categories" name="categories" ngModel #categories="ngModel">
+                  <option>Laptop</option>
+                  <option>Desktop</option>
+                  <option>Tablette</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="form-data">Ajouter une image</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1"  name="img" required ngModel #img="ngModel">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" [ngModel]="articles.estPublie" name="estPublie" ngModel #estPublie="ngModel">
+                    <label class="form-check-label" for="defaultCheck1">
+                    Publier
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="_id" [ngModel]="articles._id" class="form-control" >
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="date_creation" [ngModel]="articles.date_creation" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="nom_auteur" [ngModel]="articles.nom_auteur" class="form-control">
+                </div>
+                <button type="submit" [disabled]="f.invalid" class="btn btn-success m-2">Modifier</button>
+                <button type="reset" class="btn btn-warning m-2">Annuler</button>
+                <a [routerLink]="[ '/article', articles._id]" class="btn btn-outline-success btn-sm m-2">Voir l'article</a>
+            </form>
+                
+        </div>
+    </div>
+            
+</div>

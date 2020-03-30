@@ -1,0 +1,38 @@
+table tr td {
+    padding: 5px;
+}
+
+button {
+    margin: 3px;
+    padding: 0px;
+}
+
+@media screen and (max-width: 768px) {
+    table th,
+    td {
+        font-size: 8px;
+        text-align: left;
+        padding: 0px;
+        margin: 0px;
+    }
+    .col-9 h1 {
+        font-size: 12px;
+    }
+    .col-9 {
+        padding: 0px;
+    }
+    .col-3 {
+        font-size: 10px;
+        text-align: left;
+        padding: 0px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    h1 {
+        font-size: 14px;
+    }
+    a {
+        font-size: 8px;
+    }
+}

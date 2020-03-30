@@ -1,0 +1,86 @@
+<div class="container">
+    <h2 class="text-center my-3">Ajouter un article</h2>
+    <div class="row">
+        <div class="col-sm-12">
+            <form #f="ngForm" (ngSubmit)="onSubmitArticle(f)" (submit)="onFrmSubmit(f)" (reset)="onFrmReset(f)">
+                <div class="form-group">
+                    <label for="titre">Titre</label>
+                    <input class="form-control" type="text" name="titre" id="titre" value="" placeholder="Titre de votre article" ngModel #titre="ngModel" required minlength="10" maxlength="20" (keyup)="onChange(f)" [ngClass]="{
+                erreur: error.titre
+              }">
+                </div>
+                <div class="form-group">
+                    <label for="contenu">Contenu</label>
+                    <textarea class="form-control" rows="3" name="contenu" id="contenu" placeholder="Déscriptif produit" ngModel #contenu="ngModel" required minlength="10" maxlength="255" (keyup)="onChange(f)" [ngClass]="{
+                erreur: error.contenu
+              }"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="categories">Categories</label>
+                    <select class="form-control" id="categories" name="categories" ngModel #categories="ngModel" required (keyup)="onChange(f)" [ngClass]="{
+                      erreur: error.categories}">
+                  <option>Laptop</option>
+                  <option>Desktop</option>
+                  <option>Tablette</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                    <label for="form-data">Ajouter une image</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1" name="img" required ngModel #img="ngModel">
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="estPublie" ngModel #estPublie="ngModel" required (keyup)="onChange(f)" [ngClass]="{
+                      erreur: error.estPublie}">
+                    <label class="form-check-label" for="defaultCheck1">
+                    Publier
+                    </label>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="_id" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="date_creation" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="nom_auteur" class="form-control">
+                </div>
+
+                <button type="submit" [disabled]="f.invalid" class="btn btn-success m-2">Ajouter</button>
+                <button type="reset" class="btn btn-warning m-2">Annuler</button>
+                <a [routerLink]="[ '/article', articles[articles.length-1]._id]" class="btn btn-outline-success btn-sm m-2">Voir l'article</a>
+
+            </form>
+            <div *ngIf="erreur" class="alert alert-danger mt-5">
+                <div *ngIf="!titre.valid && titre.errors.required">Champ titre requis</div>
+                <div *ngIf="!titre.valid && titre.errors.minlength">
+                    Champ titre doit avoir 10 caractères minimum
+                </div>
+                <div *ngIf="!titre.valid && titre.errors.maxlength">
+                    Champ titre doit avoir 20 caractères maximum
+                </div>
+
+                <div *ngIf="!contenu.valid && contenu.errors.required">
+                    Champ contenu requis
+                </div>
+                <div *ngIf="!contenu.valid && contenu.errors.minlength">
+                    Le champ contenu doit avoir 10 caractères minimum
+                </div>
+                <div *ngIf="!contenu.valid && contenu.errors.maxlength">
+                    Le champ contenu doit avoir 255 caractères maximum
+                </div>
+                <div *ngIf="!categories.valid && categories.errors.required">
+                    Champ categoris requis
+                </div>
+                <div *ngIf="!estPublie.valid && estPublie.errors.required">
+                    Champ publier requis
+                </div>
+                <div *ngIf="!img.valid && img.errors.required">
+                    Champ Image requis
+                </div>
+            </div>
+            <div *ngIf="success" class="alert alert-success mt-5">
+                Un article vient d'étre ajouté!
+            </div>
+        </div>
+    </div>
+</div>

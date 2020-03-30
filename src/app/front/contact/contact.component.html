@@ -1,0 +1,120 @@
+<div id="main">
+    <div class="inner">
+        <section class="clearfix">
+            <h1 class="text-center">Nous Contacter</h1>
+            <p><span class="image right "><img  class="img-fluid" src="assets/contact.jpg" alt=""/></span>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio
+        porttitor sem non mi integer non faucibus ornare mi ut ante amet
+        placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan
+        varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+      <p>
+        Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio
+        porttitor sem non mi integer non faucibus ornare mi ut ante amet
+        placerat aliquet.
+      </p>
+    </section>
+    <hr />
+    <section>
+      <h2 class="text-center">Formulaire à remplir</h2>
+      <form
+        class="formulaire m-3"
+        #f="ngForm"
+        (submit)="onFrmSubmit(f)"
+        (reset)="onFrmReset(f)"
+      >
+        <input
+        class="form-control border border-primary"
+          type="text"
+          name="name"
+          id="name"
+          value=""
+          placeholder="Name"
+          ngModel
+          #name="ngModel"
+          required
+          minlength="10"
+          maxlength="50"
+          (keyup)="onChange(f)"
+          [ngClass]="{
+            erreur: error.name
+          }"
+        />
+        <input
+        class="form-control border border-primary"
+          required="required"
+          type="email"
+          name="email"
+          id="email"
+          value=""
+          placeholder="Entrer le mail"
+          ngModel
+          #email="ngModel"
+          required
+          minlength="10"
+          maxlength="50"
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+          (keyup)="onChange(f)"
+          [ngClass]="{
+            erreur: error.email
+          }"
+        />
+        <textarea
+        class="form-control border border-primary"
+          name="message"
+          id="message"
+          placeholder="Enter your message"
+          rows="6"
+          ngModel
+          #message="ngModel"
+          required
+          minlength="10"
+          maxlength="255"
+          (keyup)="onChange(f)"
+          [ngClass]="{
+            erreur: error.message
+          }"
+        ></textarea>
+        <ul class="actions">
+          <li>
+            <input class="btn" type="submit" value="Envoyer" />
+          </li>
+          <li><input class="btn" type="reset" value="Effacer" /></li>
+        </ul>
+      </form>
+      <div *ngIf="erreur" class="alert alert-danger mt-5">
+        <div *ngIf="!name.valid && name.errors.required">Champ name requis</div>
+        <div *ngIf="!name.valid && name.errors.minlength">
+          Champ name doit avoir 10 caractères minimum
+        </div>
+        <div *ngIf="!name.valid && name.errors.maxlength">
+          Champ name doit avoir 50 caractères maximum
+        </div>
+
+        <div *ngIf="!email.valid && email.errors.required">
+          Champ Email requis
+        </div>
+        <div *ngIf="!email.valid && email.errors.pattern">
+          Le champ email Doit être de la forme nom@domaine.fr
+        </div>
+        <div *ngIf="!email.valid && email.errors.minlength">
+          Champ Email doit avoir 10 caractères minimum
+        </div>
+        <div *ngIf="!email.valid && email.errors.maxlength">
+          Champ Email doit avoir 50 caractères maximum
+        </div>
+
+        <div *ngIf="!message.valid && message.errors.required">
+          Champ Message requis
+        </div>
+        <div *ngIf="!message.valid && message.errors.minlength">
+          Le champ Message doit avoir 10 caractères minimum
+        </div>
+        <div *ngIf="!message.valid && message.errors.maxlength">
+          Le champ message doit avoir 255 caractères maximum
+        </div>
+      </div>
+      <div *ngIf="success" class="alert alert-success mt-5">
+        Merci pour votre message ! Nous revenons vers vous au plus vite !!
+      </div>
+    </section>
+  </div>
+</div>

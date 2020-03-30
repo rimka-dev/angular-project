@@ -1,0 +1,20 @@
+.card-body {
+    padding: 0.25rem;
+}
+
+.card {
+    width: 18rem;
+}
+
+@media screen and (max-width: 940px) {
+    .card-body {
+        width: 13rem;
+    }
+    h5 {
+        font-size: 14px;
+        margin: auto;
+    }
+    .card {
+        width: 14rem;
+    }
+}

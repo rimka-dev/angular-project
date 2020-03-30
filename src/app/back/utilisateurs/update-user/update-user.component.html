@@ -1,0 +1,41 @@
+<div class="container">
+    <h2 class="text-center my-3">Mis ajour d'un utilisateur</h2>
+    <div class="row">
+        <div class="col-sm-12" >
+            <form [formGroup] ="utilisateurs" (ngSubmit)="onUpdateUser(user)" >
+                <div class="form-group">
+                    <label for="nom">Nom</label>
+                    <input class="form-control" type="text" name="nom" id="nom" formControlName="nom" value=""  >
+                </div>
+                <div class="form-group">
+                    <label for="prenom">Prenom</label>
+                    <input class="form-control" type="text" name="prenom"  id="prenom" formControlName="prenom" value="">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email address</label>
+                    <input name="email" type="email"  class="form-control" id="email" formControlName="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input name="password"  type="password" class="form-control" id="password" formControlName="password">
+                </div>
+                <div class="form-group">
+                    <label for="role">Role</label>
+                    <select class="form-control" id="role" name="role" formControlName="role" >
+                <option>Editeur</option>
+                <option>Administrateur</option>
+                </select>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" formControlName="estActif" value="" id="estActif" name="estActif"  >
+                    <label class="form-check-label" for="defaultCheck1">
+                  Activer
+                </label>
+                </div>
+                <button type="submit" class="btn btn-success m-2" >Modifier</button>
+                <button (click)="updateUtilisateurs()">Update Profile</button>
+                <button type="reset" class="btn btn-warning m-2">Annuler</button>
+            </form>
+        </div>
+    </div>
+</div>

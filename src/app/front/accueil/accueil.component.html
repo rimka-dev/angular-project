@@ -1,0 +1,17 @@
+<app-carousel></app-carousel>
+<div class="container">
+    <div class="row mt-2">
+        <article class="col-sm-4 alert alert-primary h-50" *ngFor="let article of articles.reverse() | paginate: { itemsPerPage: 6, currentPage: p }">
+            <div class="card mx-auto border border-primary">
+                <img src="../../../assets/PC1.png" class="card-img-top img-fluid " alt="Laptop" title="Laptop">
+                <div class="card-body text-center p-0.25rem">
+                    <h5 class="card-title">{{article.titre }}</h5>
+                    <p style=" height: 54px; overflow: hidden;">{{article.contenu}}</p>
+                    <a [routerLink]="[ '/article', article._id]" class="btn btn-outline-success btn-sm">+ Détailles</a>
+                </div>
+            </div>
+        </article>
+    </div>
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+</div>

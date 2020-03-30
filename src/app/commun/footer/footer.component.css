@@ -1,0 +1,99 @@
+/* ======== FOOTER ======== */
+
+footer {
+    padding-top: 30px;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+}
+
+ul li {
+    text-decoration: none;
+    list-style-type: none;
+}
+
+footer article {
+    margin-bottom: 20px;
+}
+
+footer a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #1a252f;
+    font-weight: bold;
+}
+
+footer h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+footer div:first-child {
+    display: flex;
+    justify-content: space-around;
+}
+
+footer ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+footer ul li a {
+    color: white;
+}
+
+footer ul li a:hover {
+    color: #1a252f;
+}
+
+footer ul li a i {
+    font-size: 200%;
+}
+
+footer div:last-child {
+    background: #1a252f;
+    padding: 10px 0;
+}
+
+footer i {
+    margin: 5px;
+}
+
+.cash:hover {
+    color: #1a252f;
+}
+
+@media screen and (max-width: 940px) {
+    footer ul li a i {
+        font-size: 100%;
+    }
+    footer h4 {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    footer ul li a i {
+        font-size: 80%;
+    }
+    footer h4,
+    p {
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    footer ul li a i {
+        font-size: 40%;
+    }
+    footer h4,
+    p {
+        font-size: 8px;
+        margin-bottom: 3px;
+    }
+}

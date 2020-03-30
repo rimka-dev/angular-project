@@ -1,0 +1,30 @@
+<div class="row mt-3">
+    <div class="col-4">
+        <app-menu-back></app-menu-back>
+        <a routerLink="/admin" class="btn btn-success m-2 mx-auto">Accueil Back-Office</a>
+    </div>
+    <div class="col-8">
+        <h1>Gestion des Parametres</h1>
+        <div class="table-responsive">
+            <table class="table table-info table-striped table-bordered table-hover">
+                <thead class="thead-light">
+                    <tr>
+                        <th class="text-center">Nbr articles homepage</th>
+                        <th>meta description</th>
+                        <th>Introduction</th>
+                        <th>Titre homepage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let param of parametres">
+                        <td class="text-right"> 6</td>
+                        <td>
+                            name="description" content="spécialiste de la vente de matériel informatique en ligne, déstockage informatique, bureautique, et Technologie de l'information au meilleur et moins cher prix informatique laptops ordinateur imprimante clavier souris" </td>
+                        <td> {{param.information}}</td>
+                        <td>Dans la balise "title" FilRougeFront Angular_project</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
